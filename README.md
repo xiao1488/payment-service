@@ -1,21 +1,35 @@
-# Payment Service — FastAPI + MongoDB Atlas (Render Deployment)
+# 💳 Payment Service — FastAPI + MongoDB Atlas (Render Deployment)
 
-## Overview
-This microservice handles payment operations (create, read, update, delete).
-It connects to MongoDB Atlas and is deployed using Docker on Render.
+## 🧩 Overview
+This microservice handles **payment operations** (create, read, update, delete).  
+It connects to **MongoDB Atlas** and is deployed using **Docker** on **Render**.
 
-## Features
-- CRUD operations for payments
-- `/health/db` endpoint to verify MongoDB connectivity
-- Secure environment configuration (no exposed `.env`)
+---
 
-## Environment Variables
-| Name | Description |
-|------|--------------|
-| `MONGO_URI` | MongoDB Atlas connection string |
-| `DB_NAME` | Database name (e.g., ecommerce) |
+## 🚀 Features
+- Full **CRUD** for payments (`/payments`)
+- Health check endpoint: `/health/db`
+- Secure **environment-based configuration**
+- **Dockerized** for easy deployment
+- Deployed live on Render:  
+  👉 [https://payment-service-g6iu.onrender.com](https://payment-service-g6iu.onrender.com)
 
-## Local Run
+---
+
+## ⚙️ Environment Variables
+| Variable | Description | Example |
+|-----------|--------------|----------|
+| `MONGO_URI` | MongoDB Atlas connection string | `mongodb+srv://user:pass@cluster0.mongodb.net/` |
+| `DB_NAME` | Database name | `ecommerce` |
+| `PORT` *(optional)* | Server port | `8000` |
+
+> 🔒 Make sure to store sensitive data (like `MONGO_URI`) in `.env` — do **not** commit it.
+
+---
+
+## 🧱 Local Development
+
+### 1️⃣ Clone the repo
 ```bash
-docker build -t payment-service .
-docker run -p 8000:8000 -e MONGO_URI="mongodb://localhost:27017" -e DB_NAME="ecommerce" payment-service
+git clone <your_repo_url>
+cd payment-service
